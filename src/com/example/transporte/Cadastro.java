@@ -10,7 +10,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class Cadastro extends Activity implements OnClickListener{
-	public final static String MESSAGE = "Item Cadastrado.";
+	public final static String MESSAGE = "MESSAGE";
+	public final static String COMP = "COMP";
+	public final static String LARG ="LARG";
+	public final static String ALT = "ALT";
+	public final static String PESO = "PESO";
+	public final static String QUANT = "QUANT";
 	private Button confirmar;
 
 	@Override
@@ -33,6 +38,27 @@ public class Cadastro extends Activity implements OnClickListener{
 		EditText editText = (EditText) findViewById(R.id.nome);
 		String message = editText.getText().toString();
 		intent.putExtra(MESSAGE, message);
+		
+		editText = (EditText) findViewById(R.id.comp);
+		message = editText.getText().toString();
+		intent.putExtra(COMP, message);
+		
+		editText = (EditText) findViewById(R.id.larg);
+		message = editText.getText().toString();
+		intent.putExtra(LARG, message);
+		
+		editText = (EditText) findViewById(R.id.alt);
+		message = editText.getText().toString();
+		intent.putExtra(ALT, message);
+		
+		editText = (EditText) findViewById(R.id.peso);
+		message = editText.getText().toString();
+		intent.putExtra(PESO, message);
+		
+		editText = (EditText) findViewById(R.id.quant);
+		message = editText.getText().toString();
+		intent.putExtra(QUANT, message);
+		
 		startActivity(intent);
     }
 }

@@ -28,10 +28,114 @@
         android:id="@+id/button_confirmar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/nome"
-        android:layout_marginRight="26dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="28dp"
         android:text="@string/confirmar" />
+
+    <TextView
+        android:id="@+id/textcomp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nome"
+        android:layout_below="@+id/nome"
+        android:layout_marginTop="18dp"
+        android:text="@string/comp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/comp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textcomp"
+        android:layout_alignLeft="@+id/button_confirmar"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/textlarg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textcomp"
+        android:layout_below="@+id/textcomp"
+        android:layout_marginTop="28dp"
+        android:text="@string/larg"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/larg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/comp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/textlarg"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/alt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/larg"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/textpeso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textlarg"
+        android:layout_below="@+id/alt"
+        android:layout_marginTop="22dp"
+        android:text="@string/peso"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/peso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textpeso"
+        android:layout_alignBottom="@+id/textpeso"
+        android:layout_alignLeft="@+id/alt"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/textquant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textpeso"
+        android:layout_below="@+id/peso"
+        android:layout_marginTop="28dp"
+        android:text="@string/quant"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/quant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textquant"
+        android:layout_alignBottom="@+id/textquant"
+        android:layout_alignLeft="@+id/peso"
+        android:layout_alignRight="@+id/peso"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textalt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textpeso"
+        android:layout_centerVertical="true"
+        android:text="@string/alt"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
