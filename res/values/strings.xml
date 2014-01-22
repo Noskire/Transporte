@@ -11,5 +11,10 @@
     <string name="name">Nome</string>
     <string name="confirmar">Confirmar</string>
     <string name="title_activity_confirma_cadastro">ConfirmaCadastro</string>
-
+    <string name="comp">Comprimento:</string>
+    <string name="larg">Largura:</string>
+    <string name="alt">Altura:</string>
+    <string name="peso">Peso:</string>
+    <string name="quant">Quantidade:</string>
+        
 </resources>
