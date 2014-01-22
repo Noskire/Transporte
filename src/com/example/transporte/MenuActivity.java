@@ -7,8 +7,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
-public class MenuActivity extends Activity {
-
+public class MenuActivity extends Activity{
+	
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +21,9 @@ public class MenuActivity extends Activity {
             getActionBar().setDisplayHomeAsUpEnabled(true);
         }
 	}
-
+	
 	public void callCadastro(View v) {
 		Intent i = new Intent(this, Cadastro.class);
 		startActivity(i);
 	}
-
 }

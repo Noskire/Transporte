@@ -18,13 +18,13 @@ public class Cadastro extends Activity implements OnClickListener{
 	private Button confirmar;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_cadastro);
 		confirmar = (Button) findViewById(R.id.button_confirmar);
 		confirmar.setOnClickListener(this);
 	}
-
+	
 	public void onClick(View v){
 		Intent intent = new Intent(this, ConfirmaCadastro.class);
 		EditText editText = (EditText) findViewById(R.id.nome);
