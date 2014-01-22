@@ -16,6 +16,19 @@
         <activity
             android:name="com.example.transporte.MenuActivity"
             android:label="@string/title_activity_menu" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.transporte.Cadastro"
+            android:label="@string/title_activity_cadastro" >
+        </activity>
+        <activity
+            android:name="com.example.transporte.ConfirmaCadastro"
+            android:label="@string/title_activity_confirma_cadastro" >
         </activity>
     </application>
 
