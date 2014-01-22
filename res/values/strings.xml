@@ -4,17 +4,16 @@
     <string name="app_name">Transporte</string>
 
     <string name="title_activity_menu">Menu</string>
-    <string name="title_activity_main">MainActivity</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_cadastro">Cadastro</string>
     <string name="name">Nome</string>
     <string name="confirmar">Confirmar</string>
     <string name="title_activity_confirma_cadastro">ConfirmaCadastro</string>
-    <string name="comp">Comprimento:</string>
-    <string name="larg">Largura:</string>
-    <string name="alt">Altura:</string>
-    <string name="peso">Peso:</string>
-    <string name="quant">Quantidade:</string>
+    <string name="comp">Comprimento</string>
+    <string name="larg">Largura</string>
+    <string name="alt">Altura</string>
+    <string name="peso">Peso</string>
+    <string name="quant">Quantidade</string>
         
 </resources>
