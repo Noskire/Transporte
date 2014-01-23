@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class ItemDBHelper extends SQLiteOpenHelper{
-	public static final int DATABASE_VERSION = 1;
+	public static final int DATABASE_VERSION = 2;
 	public static final String DATABASE_NAME = "item.db";
 	private static final String TEXT_TYPE = " TEXT";
 	private static final String INTEGER_TYPE = " INTEGER";
@@ -22,7 +22,8 @@ public class ItemDBHelper extends SQLiteOpenHelper{
 			ItemEntry.COLUMN_LARG + " " + DOUBLE_TYPE + " " + COMMA_SEP +
 			ItemEntry.COLUMN_ALT + " " + DOUBLE_TYPE + " " + COMMA_SEP +
 			ItemEntry.COLUMN_PESO + " " + DOUBLE_TYPE + " " + COMMA_SEP +
-			ItemEntry.COLUMN_QUANT + " " + INTEGER_TYPE + " )";
+			ItemEntry.COLUMN_QUANT + " " + INTEGER_TYPE + " " + COMMA_SEP +
+			ItemEntry.COLUMN_EST + " " + INTEGER_TYPE + " )";
 
 	private static final String SQL_DELETE_ENTRIES =
 			"DROP TABLE IF EXISTS " + ItemEntry.TABLE_ITENS;

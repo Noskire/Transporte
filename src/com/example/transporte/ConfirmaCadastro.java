@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 public class ConfirmaCadastro extends ListActivity {
 	private ItemDAO datasource;
 
-	@SuppressWarnings("unchecked")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,6 +37,7 @@ public class ConfirmaCadastro extends ListActivity {
 		double dpeso = Double.parseDouble(peso.equals("")?"0":peso);
 		String quant = intent.getStringExtra(Cadastro.QUANT);
 		long lquant = Integer.parseInt(quant.equals("")?"0":quant);
+		long lest = 0;
 		
 		/*TextView textView = new TextView(this);
 	    textView.setTextSize(40);
@@ -47,7 +47,7 @@ public class ConfirmaCadastro extends ListActivity {
 
 		//ArrayAdapter<Item> adapter = (ArrayAdapter<Item>) getListAdapter();
 		Item item = null;
-		item = datasource.createItem(nome, dcomp, dlarg, dalt, dpeso, lquant);
+		item = datasource.createItem(nome, dcomp, dlarg, dalt, dpeso, lquant, lest);
 		adapter.add(item);
 		adapter.notifyDataSetChanged();
 	}

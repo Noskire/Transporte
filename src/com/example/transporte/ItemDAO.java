@@ -13,7 +13,7 @@ public class ItemDAO{
 	private ItemDBHelper dbHelper;
 	private String[] allColumns = {ItemContract.ItemEntry.COLUMN_ID, ItemContract.ItemEntry.COLUMN_NOME,
 			ItemContract.ItemEntry.COLUMN_COMP, ItemContract.ItemEntry.COLUMN_LARG, ItemContract.ItemEntry.COLUMN_ALT,
-			ItemContract.ItemEntry.COLUMN_PESO, ItemContract.ItemEntry.COLUMN_QUANT};
+			ItemContract.ItemEntry.COLUMN_PESO, ItemContract.ItemEntry.COLUMN_QUANT, ItemContract.ItemEntry.COLUMN_EST};
 	
 	public ItemDAO(Context context){
 		dbHelper = new ItemDBHelper(context);
@@ -27,7 +27,7 @@ public class ItemDAO{
 		dbHelper.close();
 	}
 	
-	public Item createItem(String nome, double comp, double larg, double alt, double peso, long quant){
+	public Item createItem(String nome, double comp, double larg, double alt, double peso, long quant, long est){
 		ContentValues values = new ContentValues();
 		values.put(ItemContract.ItemEntry.COLUMN_NOME, nome);
 		values.put(ItemContract.ItemEntry.COLUMN_COMP, comp);
@@ -35,6 +35,7 @@ public class ItemDAO{
 		values.put(ItemContract.ItemEntry.COLUMN_ALT, alt);
 		values.put(ItemContract.ItemEntry.COLUMN_PESO, peso);
 		values.put(ItemContract.ItemEntry.COLUMN_QUANT, quant);
+		values.put(ItemContract.ItemEntry.COLUMN_EST, est);
 		
 		long insertId = db.insert(ItemContract.ItemEntry.TABLE_ITENS, null, values);
 		Cursor cursor = db.query(ItemContract.ItemEntry.TABLE_ITENS, allColumns, ItemContract.ItemEntry.COLUMN_ID
@@ -74,6 +75,7 @@ public class ItemDAO{
 		item.setAlt(cursor.getDouble(4));
 		item.setPeso(cursor.getDouble(5));
 		item.setQuant(cursor.getLong(6));
+		item.setEstagio(cursor.getLong(7));
 		
 		return item;
 	}

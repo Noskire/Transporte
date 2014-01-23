@@ -8,6 +8,7 @@ public class Item{
 	private double alt;
 	private double peso;
 	private long quant;
+	private long estagio; //0 - Cadastrado, 1 - Carregado, 2 - Finalizado
 	
 	public Item(){
 		// TODO Auto-generated constructor stub
@@ -22,6 +23,7 @@ public class Item{
 		this.alt = alt;
 		this.peso = peso;
 		this.quant = quant;
+		this.estagio = 0;
 	}
 	
 	public long getId(){
@@ -80,6 +82,14 @@ public class Item{
 		this.quant = quant;
 	}
 	
+	public long getEstagio(){
+		return this.estagio;
+	}
+	
+	public void setEstagio(long est){
+		this.estagio = est;
+	}
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated constructor stub

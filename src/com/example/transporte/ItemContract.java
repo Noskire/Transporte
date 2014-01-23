@@ -14,5 +14,6 @@ public final class ItemContract{
 		public static final String COLUMN_ALT = "altura";
 		public static final String COLUMN_PESO = "peso";
 		public static final String COLUMN_QUANT = "quantidade";
+		public static final String COLUMN_EST = "estagio";
 	}
 }
