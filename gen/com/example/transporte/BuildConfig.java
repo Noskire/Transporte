@@ -1,4 +1,4 @@
-/** Automatically generated file. DO NOT MODIFY ok */
+/** Automatically generated file. DO NOT MODIFY */
 package com.example.transporte;
 
 public final class BuildConfig {

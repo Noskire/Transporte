@@ -1,5 +1,0 @@
-# Ignorar arquivos compilados
-*.class
-bin/
-# Ignorar arquivos gerados pelo ADT
-gen/
