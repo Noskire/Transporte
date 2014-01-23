@@ -1,6 +1,7 @@
 package com.example.transporte;
 
 import java.util.List;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.ArrayAdapter;
 public class ConfirmaCadastro extends ListActivity {
 	private ItemDAO datasource;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -21,26 +23,26 @@ public class ConfirmaCadastro extends ListActivity {
 
 		ArrayAdapter<Item> adapter = new ArrayAdapter<Item>(this,
 		android.R.layout.simple_list_item_1, values);
-		adapter = (ArrayAdapter<Item>) getListAdapter();
+		//adapter = (ArrayAdapter<Item>) getListAdapter();
 		setListAdapter(adapter);
 
 		Intent intent = getIntent();
 		String nome = intent.getStringExtra(Cadastro.MESSAGE);
 		String comp = intent.getStringExtra(Cadastro.COMP);
-		double dcomp = Double.parseDouble(comp);
+		double dcomp = Double.parseDouble(comp.equals("")?"0":comp);
 		String larg = intent.getStringExtra(Cadastro.LARG);
-		double dlarg = Double.parseDouble(larg);
+		double dlarg = Double.parseDouble(larg.equals("")?"0":larg);
 		String alt = intent.getStringExtra(Cadastro.ALT);
-		double dalt = Double.parseDouble(alt);
+		double dalt = Double.parseDouble(alt.equals("")?"0":alt);
 		String peso = intent.getStringExtra(Cadastro.PESO);
-		double dpeso = Double.parseDouble(peso);
+		double dpeso = Double.parseDouble(peso.equals("")?"0":peso);
 		String quant = intent.getStringExtra(Cadastro.QUANT);
-		long lquant = Integer.parseInt(quant);
+		long lquant = Integer.parseInt(quant.equals("")?"0":quant);
 		
 		/*TextView textView = new TextView(this);
 	    textView.setTextSize(40);
-	    textView.setText(message + " / " + comp + " / " + larg + " / " + alt
-	    		 + " / " + peso + " / " + quant);
+	    textView.setText(nome + " / " + dcomp + " / " + dlarg + " / " + dalt
+	    		 + " / " + dpeso + " / " + lquant);
 	    setContentView(textView);*/
 
 		//ArrayAdapter<Item> adapter = (ArrayAdapter<Item>) getListAdapter();

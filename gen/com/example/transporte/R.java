@@ -26,11 +26,10 @@ public final class R {
     public static final class id {
         public static final int LinearLayout1=0x7f070000;
         public static final int alt=0x7f070005;
-        public static final int button_cadastro=0x7f070009;
+        public static final int button_cadastro=0x7f070008;
         public static final int button_confirmar=0x7f070007;
         public static final int comp=0x7f070003;
         public static final int larg=0x7f070004;
-        public static final int listItens=0x7f070008;
         public static final int nome=0x7f070001;
         public static final int peso=0x7f070006;
         public static final int quant=0x7f070002;
