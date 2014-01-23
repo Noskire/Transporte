@@ -9,8 +9,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class MenuActivity extends ListActivity{
+	public final static String ID = "id";
 	private ItemDAO datasource;
 	
 	@SuppressLint("NewApi")
@@ -69,4 +71,12 @@ datasource.open();
 		//adapter = (ArrayAdapter<Item>) getListAdapter();
 		setListAdapter(adapter);
 	}
+	
+	@Override 
+    public void onListItemClick(ListView list, View v, int position, long id) {
+        // Do something when a list item is clicked
+		Intent i = new Intent(this, VerItem.class);
+		i.putExtra(ID, position);
+		startActivity(i);
+    }
 }

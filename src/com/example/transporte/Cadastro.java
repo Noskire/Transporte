@@ -65,7 +65,7 @@ public class Cadastro extends Activity implements OnClickListener {
 			ItemDAO data = new ItemDAO(this);
 			data.open();
 			boolean adicionou = data.createItem(nome, dcomp, dlarg, dalt,
-					dpeso, iquant);
+					dpeso, iquant, 0);
 			if (adicionou) {
 				setResult(RESULT_OK);
 				finish();

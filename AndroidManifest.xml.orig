@@ -18,6 +18,7 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -25,10 +26,17 @@
             android:name="com.example.transporte.Cadastro"
             android:label="@string/title_activity_cadastro" >
         </activity>
+<<<<<<< HEAD
         <activity
             android:name="com.example.transporte.ConfirmaCadastro"
             android:label="@string/title_activity_confirma_cadastro" >
         </activity>
+        <activity
+            android:name="com.example.transporte.VerItem"
+            android:label="@string/title_activity_ver_item" >
+        </activity>
+=======
+>>>>>>> 0153f141910675b7b2fe4e9bd80b1fc9e64c17f3
     </application>
 
 </manifest>
