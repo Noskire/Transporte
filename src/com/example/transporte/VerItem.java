@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class VerItem extends Activity implements OnClickListener{
 	private ItemDAO datasource;
@@ -44,24 +45,36 @@ public class VerItem extends Activity implements OnClickListener{
 	public void onClick(View v){
 		EditText editText = (EditText) findViewById(R.id.quant);
 		String quant = editText.getText().toString();
-		long lquant = Integer.parseInt(quant.equals("")?"0":quant);
-
-        datasource = new ItemDAO(this);
-		datasource.open();
-		
-		List<Item> values = datasource.getAllComments();
-
-		ArrayAdapter<Item> adapter = new ArrayAdapter<Item>(this,
-		android.R.layout.simple_list_item_1, values);
-		//adapter = (ArrayAdapter<Item>) getListAdapter();
-		//setListAdapter(adapter);
-
-		adapter.getItem(id).setQuant(lquant);
-		adapter.notifyDataSetChanged();
-		
-		datasource.close();
+		long lquant = 0;
+		boolean ok = false;
+		try{
+			lquant = Integer.parseInt(quant);
+			ok = true;
+		} catch (Exception e) {
+			CharSequence erro = "Verifique o dado";
+			Toast torrada = Toast.makeText(this, erro, Toast.LENGTH_SHORT);
+			torrada.show();
+		}
+		if (ok) {
+	        datasource = new ItemDAO(this);
+			datasource.open();
+			
+			List<Item> values = datasource.getAllComments();
+	
+			ArrayAdapter<Item> adapter = new ArrayAdapter<Item>(this,
+			android.R.layout.simple_list_item_1, values);
+			//adapter = (ArrayAdapter<Item>) getListAdapter();
+			//setListAdapter(adapter);
+	
+			adapter.getItem(id).setQuant(lquant);
+			adapter.notifyDataSetChanged();
+			
+			datasource.close();
+			setResult(RESULT_OK);
+			finish();
+		}
     }
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
