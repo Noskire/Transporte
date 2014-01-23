@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">Transporte</string>
-
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_cadastro">Cadastro</string>
     <string name="botao_cadastro">Novo Objeto</string>
@@ -14,5 +13,7 @@
     <string name="alt">Altura</string>
     <string name="peso">Peso</string>
     <string name="quant">Quantidade</string>
-        
+    <string name="title_activity_ver_item">VerItem</string>
+    <string name="action_settings">Settings</string>
+
 </resources>

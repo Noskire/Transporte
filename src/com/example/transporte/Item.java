@@ -94,6 +94,6 @@ public class Item{
 	public String toString() {
 		// TODO Auto-generated constructor stub
 		return (this.nome + ", " + this.comp + ", " + this.larg + ", " + this.alt
-				 + ", " + this.peso + ", " + this.quant);
+				 + ", " + this.peso + ", " + this.quant + ", " + this.estagio);
 	}
 }
