@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 public class ConfirmaCadastro extends ListActivity {
 	private ItemDAO datasource;
 
-	@SuppressWarnings("unchecked")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
