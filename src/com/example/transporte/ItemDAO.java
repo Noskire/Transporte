@@ -27,7 +27,7 @@ public class ItemDAO{
 		dbHelper.close();
 	}
 	
-	public Item createItem(String nome, double comp, double larg, double alt, double peso, long quant, long est){
+	public boolean createItem(String nome, double comp, double larg, double alt, double peso, long quant, long est){
 		ContentValues values = new ContentValues();
 		values.put(ItemContract.ItemEntry.COLUMN_NOME, nome);
 		values.put(ItemContract.ItemEntry.COLUMN_COMP, comp);
@@ -38,12 +38,7 @@ public class ItemDAO{
 		values.put(ItemContract.ItemEntry.COLUMN_EST, est);
 		
 		long insertId = db.insert(ItemContract.ItemEntry.TABLE_ITENS, null, values);
-		Cursor cursor = db.query(ItemContract.ItemEntry.TABLE_ITENS, allColumns, ItemContract.ItemEntry.COLUMN_ID
-				+ " = " + insertId, null, null, null, null);
-		cursor.moveToFirst();
-		Item newItem = cursorToItem(cursor);
-		cursor.close();
-		return newItem;
+		return insertId != -1;
 	}
 	
 	public void deleteItem(Item item){

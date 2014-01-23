@@ -22,14 +22,8 @@ public class MenuActivity extends ListActivity{
 		setContentView(R.layout.activity_menu);
 		
 		datasource = new ItemDAO(this);
-		datasource.open();
 		
-		List<Item> values = datasource.getAllComments();
-
-		ArrayAdapter<Item> adapter = new ArrayAdapter<Item>(this,
-		android.R.layout.simple_list_item_1, values);
-		//adapter = (ArrayAdapter<Item>) getListAdapter();
-		setListAdapter(adapter);
+		atualizaLista();
 		
 		// Make sure we're running on Honeycomb or higher to use ActionBar APIs
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
@@ -53,7 +47,29 @@ public class MenuActivity extends ListActivity{
 	
 	public void callCadastro(View v) {
 		Intent i = new Intent(this, Cadastro.class);
-		startActivity(i);
+		startActivityForResult(i, 0);
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode == RESULT_OK){
+			atualizaLista();
+		} else {
+			// faz nada =D
+		}
+		super.onActivityResult(requestCode, resultCode, data);
+		
+	}
+	
+	protected void atualizaLista() {
+datasource.open();
+		
+		List<Item> values = datasource.getAllComments();
+
+		ArrayAdapter<Item> adapter = new ArrayAdapter<Item>(this,
+		android.R.layout.simple_list_item_1, values);
+		//adapter = (ArrayAdapter<Item>) getListAdapter();
+		setListAdapter(adapter);
 	}
 	
 	@Override 

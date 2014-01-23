@@ -1,56 +1,76 @@
 package com.example.transporte;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
-public class Cadastro extends Activity implements OnClickListener{
+public class Cadastro extends Activity implements OnClickListener {
 	public final static String MESSAGE = "MESSAGE";
 	public final static String COMP = "COMP";
-	public final static String LARG ="LARG";
+	public final static String LARG = "LARG";
 	public final static String ALT = "ALT";
 	public final static String PESO = "PESO";
 	public final static String QUANT = "QUANT";
 	private Button confirmar;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState){
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_cadastro);
 		confirmar = (Button) findViewById(R.id.button_confirmar);
 		confirmar.setOnClickListener(this);
 	}
-	
-	public void onClick(View v){
-		Intent intent = new Intent(this, ConfirmaCadastro.class);
+
+	public void onClick(View v) {
+
 		EditText editText = (EditText) findViewById(R.id.nome);
-		String message = editText.getText().toString();
-		intent.putExtra(MESSAGE, message);
-		
+		String nome = editText.getText().toString();
+
 		editText = (EditText) findViewById(R.id.comp);
-		message = editText.getText().toString();
-		intent.putExtra(COMP, message);
-		
+		String comp = editText.getText().toString();
+
 		editText = (EditText) findViewById(R.id.larg);
-		message = editText.getText().toString();
-		intent.putExtra(LARG, message);
-		
+		String larg = editText.getText().toString();
+
 		editText = (EditText) findViewById(R.id.alt);
-		message = editText.getText().toString();
-		intent.putExtra(ALT, message);
-		
+		String alt = editText.getText().toString();
+
 		editText = (EditText) findViewById(R.id.peso);
-		message = editText.getText().toString();
-		intent.putExtra(PESO, message);
-		
+		String peso = editText.getText().toString();
+
 		editText = (EditText) findViewById(R.id.quant);
-		message = editText.getText().toString();
-		intent.putExtra(QUANT, message);
-		
-		startActivity(intent);
-    }
+		String quant = editText.getText().toString();
+
+		Double dcomp = .0, dlarg = .0, dalt = .0, dpeso = .0;
+		int iquant = 0;
+		boolean ok = false;
+
+		try {
+			dcomp = Double.parseDouble(comp);
+			dlarg = Double.parseDouble(larg);
+			dalt = Double.parseDouble(alt);
+			dpeso = Double.parseDouble(peso);
+			iquant = Integer.parseInt(quant);
+			ok = true;
+		} catch (Exception e) {
+			CharSequence erro = "Verifique os dados";
+			Toast torrada = Toast.makeText(this, erro, Toast.LENGTH_SHORT);
+			torrada.show();
+		}
+		if (ok) {
+			ItemDAO data = new ItemDAO(this);
+			data.open();
+			boolean adicionou = data.createItem(nome, dcomp, dlarg, dalt,
+					dpeso, iquant);
+			if (adicionou) {
+				setResult(RESULT_OK);
+				finish();
+			}
+		}
+
+	}
 }
