@@ -34,6 +34,10 @@
             android:name="com.example.transporte.MainActivity"
             android:label="@string/title_activity_main" >
         </activity>
+        <activity
+            android:name="com.example.transporte.Justifique"
+            android:label="@string/title_activity_justifique" >
+        </activity>
     </application>
 
 </manifest>

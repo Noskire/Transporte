@@ -58,7 +58,6 @@ public class MenuActivity extends ListActivity{
 			// faz nada =D
 		}
 		super.onActivityResult(requestCode, resultCode, data);
-		
 	}
 	
 	protected void atualizaLista() {

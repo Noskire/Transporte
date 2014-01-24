@@ -63,17 +63,41 @@ public class VerItem extends Activity implements OnClickListener{
 	
 			ArrayAdapter<Item> adapter = new ArrayAdapter<Item>(this,
 			android.R.layout.simple_list_item_1, values);
-			
-			datasource.createItem(adapter.getItem(id).getNome(), adapter.getItem(id).getComp(), adapter.getItem(id).getLarg(),
-					adapter.getItem(id).getAlt(), adapter.getItem(id).getPeso(), lquant, 0);
-			datasource.deleteItem(adapter.getItem(id));
-			
+			if(adapter.getItem(id).getEstagio() == 0){
+				datasource.createItem(adapter.getItem(id).getNome(), adapter.getItem(id).getComp(), adapter.getItem(id).getLarg(),
+					adapter.getItem(id).getAlt(), adapter.getItem(id).getPeso(), lquant, 1);
+				datasource.deleteItem(adapter.getItem(id));
+			}else if(adapter.getItem(id).getEstagio() == 1){
+				if((adapter.getItem(id).getQuant() - lquant) == 0){
+					datasource.createItem(adapter.getItem(id).getNome(), adapter.getItem(id).getComp(), adapter.getItem(id).getLarg(),
+						adapter.getItem(id).getAlt(), adapter.getItem(id).getPeso(), lquant, 2);
+					datasource.deleteItem(adapter.getItem(id));
+				}else if((adapter.getItem(id).getQuant() - lquant) > 0){
+					//Justifique
+					datasource.createItem(adapter.getItem(id).getNome(), adapter.getItem(id).getComp(), adapter.getItem(id).getLarg(),
+						adapter.getItem(id).getAlt(), adapter.getItem(id).getPeso(), (adapter.getItem(id).getQuant() - lquant), 2);
+					datasource.deleteItem(adapter.getItem(id));
+					Intent i = new Intent(this, Justifique.class);
+					startActivityForResult(i, 0);
+				}
+			}
 			datasource.close();
 			setResult(RESULT_OK);
 			finish();
 		}
     }
 	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if(resultCode == RESULT_OK){
+			setResult(RESULT_OK);
+			finish();
+		}else{
+			// faz nada =D
+		}
+		super.onActivityResult(requestCode, resultCode, data);
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
