@@ -62,7 +62,7 @@ public class MenuActivity extends ListActivity{
 	}
 	
 	protected void atualizaLista() {
-datasource.open();
+		datasource.open();
 		
 		List<Item> values = datasource.getAllComments();
 
@@ -77,6 +77,6 @@ datasource.open();
         // Do something when a list item is clicked
 		Intent i = new Intent(this, VerItem.class);
 		i.putExtra(ID, position);
-		startActivity(i);
+		startActivityForResult(i, 0);
     }
 }

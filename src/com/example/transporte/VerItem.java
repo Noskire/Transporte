@@ -63,11 +63,10 @@ public class VerItem extends Activity implements OnClickListener{
 	
 			ArrayAdapter<Item> adapter = new ArrayAdapter<Item>(this,
 			android.R.layout.simple_list_item_1, values);
-			//adapter = (ArrayAdapter<Item>) getListAdapter();
-			//setListAdapter(adapter);
-	
-			adapter.getItem(id).setQuant(lquant);
-			adapter.notifyDataSetChanged();
+			
+			datasource.createItem(adapter.getItem(id).getNome(), adapter.getItem(id).getComp(), adapter.getItem(id).getLarg(),
+					adapter.getItem(id).getAlt(), adapter.getItem(id).getPeso(), lquant, 0);
+			datasource.deleteItem(adapter.getItem(id));
 			
 			datasource.close();
 			setResult(RESULT_OK);
